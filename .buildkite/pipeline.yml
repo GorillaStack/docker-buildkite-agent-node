@@ -1,0 +1,19 @@
+steps:
+  - name: ':hammer: Build Image'
+    command: 'bash scripts/build.sh'
+    agents:
+      docker: 'true'
+
+  - wait
+
+  - name: ':mag: Test our :docker: image'
+    command: 'bash scripts/test_image.sh gorillastack/buildkite-agent-node'
+    agents:
+      docker: 'true'
+
+  - block
+
+  - name: ':shipit: Deploy to docker hub :rocket:'
+    command: 'bash scripts/release.sh'
+    agents:
+      docker: 'true'

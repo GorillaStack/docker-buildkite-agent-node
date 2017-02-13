@@ -16,3 +16,6 @@ RUN curl -s -o- https://raw.githubusercontent.com/creationix/nvm/v${nvm_version}
 
 # Install a version of node
 RUN [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && nvm install ${node_version} && npm install -g grunt
+
+# Install a secret dependency of phantomjs
+RUN apt-get update && apt-get -y install libfontconfig

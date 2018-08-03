@@ -21,5 +21,4 @@ RUN [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && nvm install ${node_versio
 
 # Install a secret dependency of phantomjs
 RUN apt-get update && apt-get -y install \
-  libfontconfig libpng-dev libjpeg-dev \
-  build-essential gcc make autoconf libtool pkg-config nasm
+  libfontconfig
